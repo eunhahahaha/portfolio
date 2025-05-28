@@ -529,57 +529,59 @@ div#preloader {
   3. Main Banner Area
 --------------------------------*/
 
-#video_wrap{
-  width: 100%;
-  height: 1000px;
-  overflow: hidden;
-  margin: 0 auto;
+#video_wrap {
   position: relative;
-}
-.main_video{
-  height: 100%;
-  position: absolute;
-  left: 50%;
-  margin-left: -960px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.main{
-  display: block;
-  position: relative;
-}
-.table-cell{
-  display: table-cell;
-  vertical-align: middle;
-}
-.display-table{
-  display: table;
-  justify-content: center;
-  height: 130vh;
-}
-.banner_stext{
-  padding-top: 10px;
-  color: #ffffff;
-  font-family: "IBM Plex Mono";
+.main_video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
 }
 .banner_stext2{
   padding-top: 20vh;
-  color: #ffffff;
-  font-family: "IBM Plex Mono";
 }
-/* 메인 타이틀 이미지 애니메이션 */
+.container,
+.main,
+.display-table,
+.table-cell {
+  position: relative;
+  z-index: 2; /* 영상 위에 오도록 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
 .maintitle-img {
   opacity: 0;
   transform: translateY(30px);
   animation: fadeUp 1s ease-out forwards;
   animation-delay: 0.5s;
+   padding-top: 20vh;
 }
 
-/* keyframes 정의 */
 @keyframes fadeUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.banner_stext, .banner_stext2 {
+  color: white;
+  font-family: "IBM Plex Mono";
 }
 /*------------------------------
   3. About Area
